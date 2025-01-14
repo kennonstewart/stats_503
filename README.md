@@ -1,1 +1,1 @@
-# statss_503
+# Working Repo for Statistical Machine Learning Class
