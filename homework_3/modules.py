@@ -25,7 +25,7 @@ def confusion_matrix(y_true:np.array, y_predicted:np.array) -> np.ndarray:
 
     return conf_matrix
 
-def rate_calculations(test_set, classifications) -> tuple:
+def rate_calculations(test_set:np.ndarray, classifications:np.array) -> tuple:
     # calculate the confusion matrix
     matrix = confusion_matrix(test_set, classifications)
 
@@ -52,7 +52,13 @@ def rate_calculations(test_set, classifications) -> tuple:
 
     return (TPR, FPR, TNR, FNR)
 
-def simulate_thresholds(threshold, prediction_probabilities, y_test):   
+def calculate_nll(probabilities: np.array) -> float:
+    sum = 0
+    for no_prob, yes_prob in probabilities:
+        sum -= np.log(max(yes_prob, no_prob))
+    return(float(sum))
+
+def simulate_thresholds(prediction_probabilities: np.ndarray, y_test: np.array) -> list:   
     # initialize the range of thresholds
     thresholds = np.linspace(0, 1, 101)
     results = list()
@@ -68,5 +74,3 @@ def simulate_thresholds(threshold, prediction_probabilities, y_test):
         
     # return the results
     return (results)
-
-simulation_results = simulate_thresholds(y_college_test, prediction_probabilities, y_college_test)
