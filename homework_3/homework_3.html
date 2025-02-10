@@ -7516,93 +7516,141 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Homework-3">Homework 3<a class="anchor-link" href="#Homework-3">¶</a></h2><p><strong>Name: </strong>Kennon Stewart</p>
-<p><strong>Email: </strong>ksstewar@umich.edu</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">¶</a></h3><p><strong>Question:</strong> Using a little bit of algebra, prove the following: $p(x)=\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}=\log[\frac{p(x)}{1-p(x)}]=\beta_{0}+\beta_{1}X$.</p>
-<p>First, we state the definition that $\log[\frac{p(X)}{1-p(X)}]=\log[p(X)] - \log[1-p(X)]$, which comes from the properties of logarithms. I then replace the values of $p(X)$ with their actual values to give $\log[\frac{p(X)}{1-p(X)}]=\log[\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]-\log[1-\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]$. I re-write the singular 1 as the ratio of equal values in order to convert the two terms in the second logarithm to one: $\log[\frac{p(X)}{1-p(X)}]=\log[\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]-\log[\frac{1+exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}-\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]$. As I mentioned, the second logarithm becomes much more manageable as $\log[\frac{p(X)}{1-p(X)}]=\log[exp(\beta_{0}+\beta_{1}X)] - \log[1+exp(\beta_{0}+\beta_{1}X)]-\log[1]+\log[1+exp(\beta_{0}+\beta_{1}X)]$.</p>
-<p>This is simplified to get $\log[\frac{p(X)}{1-p(X)}]=\beta_{0}+\beta_{1}X$.</p>
-<p align="center"> <strong>Complete Steps:</strong></p>
-<p>$$
-\log[\frac{p(X)}{1-p(X)}]=\log[p(X)] - \log[1-p(X)] \\ 
-\log[\frac{p(X)}{1-p(X)}]=\log[\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]-\log[1-\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}] \\ 
-\log[\frac{p(X)}{1-p(X)}]=\log[\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}]-\log[\frac{1+exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}-\frac{exp(\beta_{0} + \beta_{1}X)}{1+exp(\beta_{0} + \beta_{1}X)}] \\ 
-\log[\frac{p(X)}{1-p(X)}]=\log[exp(\beta_{0}+\beta_{1}X)] - \log[1+exp(\beta_{0}+\beta_{1}X)]-\log[1]+\log[1+exp(\beta_{0}+\beta_{1}X)] \\
-\log[\frac{p(X)}{1-p(X)}]=\beta_{0}+\beta_{1}X
+<h1 id="STATS-503---Homework-3"><strong>STATS 503 - Homework 3</strong><a class="anchor-link" href="#STATS-503---Homework-3">¶</a></h1><p><strong>Name:</strong> Kennon Stewart<br/>
+<strong>Email:</strong> ksstewar@umich.edu</p>
+<hr/>
+<h2 id="Question-1:-ISLP-Chapter-4,-Conceptual-Exercise-%231"><strong>Question 1: ISLP Chapter 4, Conceptual Exercise #1</strong><a class="anchor-link" href="#Question-1:-ISLP-Chapter-4,-Conceptual-Exercise-%231">¶</a></h2><h3 id="Problem-Statement:"><strong>Problem Statement:</strong><a class="anchor-link" href="#Problem-Statement:">¶</a></h3><p>Using a little bit of algebra, prove the following equation:
+$$
+p(x) = \frac{\exp(\beta_{0} + \beta_{1}X)}{1+\exp(\beta_{0} + \beta_{1}X)}
+$$
+Show that this simplifies to:
+$$
+\log\left[\frac{p(X)}{1-p(X)}\right] = \beta_{0}+\beta_{1}X
 $$</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">¶</a></h3><h4 id="Part-A">Part A<a class="anchor-link" href="#Part-A">¶</a></h4><p><strong>Question:</strong> Ommitted for length.</p>
-<p>Noting that the predictors are uniformly distributed across the interval $[0,1]$, we can expect that 10% of the observations would be used to make the prediction.</p>
-<h4 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h4><p><strong>Question:</strong> Ommitted for length.</p>
-<p>Since the area of our unit square is 1, we can expect $0.1\times0.1=0.01$, or 1% of the observations to be used in predicting the response of the newest observation.</p>
-<h4 id="Part-C">Part C<a class="anchor-link" href="#Part-C">¶</a></h4><p><strong>Question:</strong> Ommitted for length.</p>
-<p>We can assume that $(0.1)^{100}=1\times10^{99}$, or that an incredibly small portion of our training set would be used to predict the newest observation.</p>
-<h4 id="Part-D">Part D<a class="anchor-link" href="#Part-D">¶</a></h4><p><strong>Question:</strong> Ommitted for length.</p>
-<p>I notice that, as the number of parameters increases, we use an increasingly small portion of our training set to predict the response of our newest observation. This can be an issue because the model can uses a very small portion of the sample, meaning it isn't considering the variation that can occur in the responses. I would assume that this produces a less-powerful classifier.</p>
-<h4 id="Part-E">Part E<a class="anchor-link" href="#Part-E">¶</a></h4><p><strong>Question:</strong> Ommitted for length.</p>
-<p>The length of each side of an n-dimensional hypercube would be of length $ (0.1)^{1/(n-1)} $, or the $(n-1)$-th root of 0.1 This allows the area of the hypercube to integrate to 1.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-9">Question 9<a class="anchor-link" href="#Question-9">¶</a></h3><h4 id="Part-A">Part A<a class="anchor-link" href="#Part-A">¶</a></h4><p><strong>Question: </strong>On average, what % of people with a 0.37 odds of default will actually default on their credit card bills?</p>
-<p>On average, the odds of a random variable, X, is equal to $\frac{p(X)}{1-p(X)}$. We can solve for $p(X)$ to get $p(X)=0.27$, which is about 27%. The calculations are below:</p>
+<h3 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h3><p>Using logarithm properties:</p>
 <p>$$
-odds(X)=\frac{p(X)}{1-p(X)} 
-$$
-$$
-0.37=\frac{p(X)}{1-p(X)} 
-$$
-$$
-0.37 - 0.37p(X) = p(X) 
-$$
-$$
-0.37 = 1.37p(X) 
-$$
-$$
-p(X) = 0.27
+\log\left[\frac{p(X)}{1-p(X)}\right] = \log[p(X)] - \log[1-p(X)]
 $$</p>
-<h4 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h4><p><strong>Question: </strong>If an individual has a 16% of defaulting on their credit card bill, what are their odds of default?</p>
-<p>We can compute the odds of default easily from the odds to get an odds of 0.19. The calculations are as follows:</p>
+<p>Substituting the logistic function:</p>
 <p>$$
-\frac{0.16}{1-0.16} = 0.19
+\log\left[\frac{\exp(\beta_{0} + \beta_{1}X)}{1+\exp(\beta_{0} + \beta_{1}X)}\right] - \log\left[1 - \frac{\exp(\beta_{0} + \beta_{1}X)}{1+\exp(\beta_{0} + \beta_{1}X)}\right]
 $$</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-12">Question 12<a class="anchor-link" href="#Question-12">¶</a></h3><h4 id="Part-A">Part A<a class="anchor-link" href="#Part-A">¶</a></h4><p>What are the log-odds of apples in your model?</p>
-<h4 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h4><h4 id="Part-C">Part C<a class="anchor-link" href="#Part-C">¶</a></h4>
+<p>Simplifying:</p>
+<p>$$
+\log[\exp(\beta_{0}+\beta_{1}X)] - \log[1+\exp(\beta_{0}+\beta_{1}X)] - \log[1] + \log[1+\exp(\beta_{0}+\beta_{1}X)]
+$$</p>
+<p>$$
+= \beta_{0}+\beta_{1}X
+$$</p>
+<hr/>
+<h2 id="Question-2:-ISLP-Chapter-4,-Conceptual-Exercise-%234"><strong>Question 2: ISLP Chapter 4, Conceptual Exercise #4</strong><a class="anchor-link" href="#Question-2:-ISLP-Chapter-4,-Conceptual-Exercise-%234">¶</a></h2><h3 id="Problem-Statement:"><strong>Problem Statement:</strong><a class="anchor-link" href="#Problem-Statement:">¶</a></h3><p>We analyze how increasing the number of features affects prediction accuracy.</p>
+<h4 id="Part-A:"><strong>Part A:</strong><a class="anchor-link" href="#Part-A:">¶</a></h4><p>If (X) is uniformly distributed on ([0,1]), estimate the fraction of available observations used for prediction when considering only points within 10% of the range of (X).</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>Since predictors are uniformly distributed, the range ([X-0.05, X+0.05]) contains <strong>10%</strong> of the data.</p>
+<h4 id="Part-B:"><strong>Part B:</strong><a class="anchor-link" href="#Part-B:">¶</a></h4><p>Now suppose observations have two features, (X_1) and (X_2), uniformly distributed on ([0,1] \times [0,1]). What fraction of available observations will be used?</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>The probability of selecting an observation in <strong>both dimensions</strong>:</p>
+<p>$$
+(0.1) \times (0.1) = 0.01
+$$</p>
+<p>Thus, <strong>1%</strong> of the observations are used.</p>
+<h4 id="Part-C:"><strong>Part C:</strong><a class="anchor-link" href="#Part-C:">¶</a></h4><p>Extend the result to ( p = 100 ) features.</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>For ( p ) dimensions, the fraction is:</p>
+<p>$$
+(0.1)^{100} = 1 \times 10^{-99}
+$$</p>
+<p>This is an <strong>extremely small proportion</strong> of the dataset.</p>
+<h4 id="Part-D:"><strong>Part D:</strong><a class="anchor-link" href="#Part-D:">¶</a></h4><p>Discuss the implications of increasing dimensions on predictive performance.</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>With increasing dimensions, the fraction of data used becomes negligible, making <strong>local methods ineffective</strong>. This is known as the <strong>curse of dimensionality</strong>.</p>
+<h4 id="Part-E:"><strong>Part E:</strong><a class="anchor-link" href="#Part-E:">¶</a></h4><p>Derive the expression for the side length of an ( n )-dimensional hypercube.</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>The side length ( s ) of an ( n )-dimensional hypercube that captures a fraction ( f ) of observations is:</p>
+<p>$$
+s = (0.1)^{\frac{1}{n-1}}
+$$</p>
+<p>This ensures the volume integrates to <strong>1</strong>.</p>
+<hr/>
+<h2 id="Question-3:-ISLP-Chapter-4,-Conceptual-Exercise-%239"><strong>Question 3: ISLP Chapter 4, Conceptual Exercise #9</strong><a class="anchor-link" href="#Question-3:-ISLP-Chapter-4,-Conceptual-Exercise-%239">¶</a></h2><h4 id="Problem-Statement:"><strong>Problem Statement:</strong><a class="anchor-link" href="#Problem-Statement:">¶</a></h4><p>Compute the probability and odds of credit card default based on given odds.</p>
+<h4 id="Part-A:"><strong>Part A:</strong><a class="anchor-link" href="#Part-A:">¶</a></h4><p>Given odds of default = <strong>0.37</strong>, compute ( P(X) ).</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>Using:</p>
+<p>$$
+\text{Odds}(X) = \frac{p(X)}{1-p(X)}
+$$</p>
+<p>We solve:</p>
+<p>$$
+0.37 = \frac{p(X)}{1-p(X)}
+$$</p>
+<p>Rearrange:</p>
+<p>$$
+p(X) = \frac{0.37}{1.37} \approx 0.27
+$$</p>
+<p>Thus, <strong>27% probability</strong> of default.</p>
+<h4 id="Part-B:"><strong>Part B:</strong><a class="anchor-link" href="#Part-B:">¶</a></h4><p>Given <strong>16% probability</strong>, compute odds.</p>
+<h4 id="Solution:"><strong>Solution:</strong><a class="anchor-link" href="#Solution:">¶</a></h4><p>$$
+\text{Odds} = \frac{0.16}{1-0.16} = 0.19
+$$</p>
+<p>Thus, <strong>odds of 0.19</strong>.</p>
+<hr/>
+<h2 id="Question-4:-ISLP-Chapter-4,-Conceptual-Exercise-%2312"><strong>Question 4: ISLP Chapter 4, Conceptual Exercise #12</strong><a class="anchor-link" href="#Question-4:-ISLP-Chapter-4,-Conceptual-Exercise-%2312">¶</a></h2><h4 id="Part-A:"><strong>Part A:</strong><a class="anchor-link" href="#Part-A:">¶</a></h4><p>Compute the log-odds for apples:</p>
+<p>$$
+\log\left(\frac{p(Y=\text{orange} | X=x)}{1 - p(Y=\text{orange} | X=x)}\right) = \beta_{0} + \beta_{1} X
+$$</p>
+<h4 id="Part-B:"><strong>Part B:</strong><a class="anchor-link" href="#Part-B:">¶</a></h4><p>Using the multinomial logistic regression equation:</p>
+<p>$$
+\log\left(\frac{p(Y=\text{orange} | X=x)}{p(Y=\text{apple} | X=x)}\right) = \beta_{0, \text{orange}} + \beta_{1, \text{orange}} X
+$$</p>
+<h4 id="Part-C:"><strong>Part C:</strong><a class="anchor-link" href="#Part-C:">¶</a></h4><p>Solve using:</p>
+<p>$$
+\alpha_{0, \text{apple}} + \alpha_{1, \text{apple}} X + \alpha_{0, \text{orange}} + \alpha_{1, \text{orange}} X = \beta_{0} + \beta_{1} X = 2 - X
+$$</p>
+<p>Yielding:</p>
+<p>$$
+\alpha_{0, \text{orange}} = 2 - \alpha_{0, \text{apple}}
+$$</p>
+<p>$$
+\alpha_{1, \text{orange}} = -1 - \alpha_{1, \text{apple}}
+$$</p>
+<hr/>
+<h2 id="Question-5:-Logistic-Regression-for-Predicting-Grades"><strong>Question 5: Logistic Regression for Predicting Grades</strong><a class="anchor-link" href="#Question-5:-Logistic-Regression-for-Predicting-Grades">¶</a></h2><p>Given logistic regression model:</p>
+<p>$$
+\log \frac{p(Y=1)}{1 - p(Y=1)} = -4 + 0.05X_1 + X_2
+$$</p>
+<h3 id="Part-A:"><strong>Part A:</strong><a class="anchor-link" href="#Part-A:">¶</a></h3><p>Predict probability when <strong>X1 = 5</strong>, <strong>X2 = 3.5</strong>:</p>
+<p>$$
+p(Y=1) = \frac{\exp(-4 + 0.05(5) + 3.5)}{1 + \exp(-4 + 0.05(5) + 3.5)}
+$$</p>
+<h3 id="Part-B:"><strong>Part B:</strong><a class="anchor-link" href="#Part-B:">¶</a></h3><p>Compute odds:</p>
+<p>$$
+\text{Odds} = \frac{p(X)}{1 - p(X)}
+$$
+$$
+\text{Odds} = \frac{
+    exp(-0.25)
+}{
+    1+exp(-0.25)
+}
+$$
+$$
+\text{Odds} = exp(-.25)
+$$</p>
+<h3 id="Part-C:"><strong>Part C:</strong><a class="anchor-link" href="#Part-C:">¶</a></h3><p>Solve for $X_1$ when $p(Y=1) = 0.5$:</p>
+<p>Using:</p>
+<p>$$
+\log \frac{p(Y=1)}{1 - p(Y=1)} = -4 + 0.05X_1 + X_2
+$$</p>
+<p>Since $p(Y=1) = 0.5$, we set:</p>
+<p>$$
+0.5 = \frac{\exp(-4 + 0.05X_1 + X_2)}{1 + \exp(-4 + 0.05X_1 + X_2)}
+$$</p>
+<p>Taking the <strong>logarithm</strong>:</p>
+<p>$$
+\log 1 = 0
+$$</p>
+<p>$$
+-4 + 0.05X_1 + X_2 = 0
+$$</p>
+<p>Solving for $X_1$:</p>
+<p>$$
+X_1 = \frac{4 - X_2}{0.05}
+$$</p>
+<p>This gives the <strong>threshold</strong> for $X_1$ when the probability of success is exactly <strong>50%</strong>.</p>
 </div>
 </div>
 </div>
@@ -8150,6 +8198,17 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Question-6">Question 6<a class="anchor-link" href="#Question-6">¶</a></h2><p>Below, I take the trained logistic model and use the test set to calculate the negative log-likelihood of the parameters chosen. It ends up being somewhere around 52.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8182,12 +8241,83 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">point_5_predictions</span> <span class="o">=</span> <span class="n">hard_classification</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">prediction_probabilities</span><span class="p">)</span>
+<span class="n">point_5_confusion_matrix</span> <span class="o">=</span> <span class="n">rate_calculations</span><span class="p">(</span><span class="n">y_college_test</span><span class="p">,</span> <span class="n">point_5_predictions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">point_5_confusion_matrix</span><span class="p">)</span>
+<span class="c1"># returns (TPR, FPR, TNR, FNR)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(0.9660297239915074, 0.11173184357541899, 0.888268156424581, 0.09142857142857143)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Part-C">Part C<a class="anchor-link" href="#Part-C">¶</a></h3><p>I adjust the thresholds for the hard classifier to 0.9. I notice that the confusion matrix for the test predictions hardly seems to change, indicating that the model is likely assigning probabilities that are pretty close to 0 or 1.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">point_9_predictions</span> <span class="o">=</span> <span class="n">hard_classification</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">prediction_probabilities</span><span class="p">)</span>
+<span class="n">point_9_confusion_matrix</span> <span class="o">=</span> <span class="n">rate_calculations</span><span class="p">(</span><span class="n">y_college_test</span><span class="p">,</span> <span class="n">point_5_predictions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">point_9_confusion_matrix</span><span class="p">)</span>
+<span class="c1"># returns (TPR, FPR, TNR, FNR)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(0.9660297239915074, 0.11173184357541899, 0.888268156424581, 0.09142857142857143)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">simulation_results</span> <span class="o">=</span> <span class="n">simulate_thresholds</span><span class="p">(</span>
@@ -8204,13 +8334,24 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># isolate the false positive rate, true positive rate</span>
-<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">simulation_results</span><span class="p">)</span>
+<span class="n">tpr</span><span class="p">,</span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tnr</span><span class="p">,</span> <span class="n">fnr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">simulation_results</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Part-D">Part D<a class="anchor-link" href="#Part-D">¶</a></h3><p>I plot the ROC curve below showing the FPR vs TPR for different thresholds between 0 and 1. We can assume that the classifier is doing a good job because the arch stretches far from the line of constant slope, indicating that our True Positive Rate is pretty high in most instances when compared with our False Positive Rate.</p>
 </div>
 </div>
 </div>
@@ -8219,7 +8360,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the ROC curve</span>
@@ -8255,15 +8396,177 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Part-D">Part D<a class="anchor-link" href="#Part-D">¶</a></h3><p>And we compute a AUC score of 0.977, which I'm taking as a very good sign!</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">prediction_probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">prediction_probabilities</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+
+<span class="c1"># Compute AUC-ROC</span>
+<span class="n">auc_score</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_college_test</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">prediction_probabilities</span><span class="p">)</span>
+
+<span class="c1"># Print AUC-ROC Score</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ROC AUC Score: </span><span class="si">{</span><span class="n">auc_score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>ROC AUC Score: 0.9777
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># modules.py</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">hard_classification</span><span class="p">(</span><span class="n">threshold</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">probabilities</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="k">def</span> <span class="nf">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">=</span> <span class="n">FN</span> <span class="o">=</span> <span class="n">TN</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># initialize the rate values to 0</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">prediction</span> <span class="o">==</span> <span class="s2">"Yes"</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">y_true</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">truth</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_predicted</span><span class="p">,</span> <span class="n">y_true</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">truth</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># true positive</span>
+            <span class="n">TP</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">truth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c1"># false positive</span>
+            <span class="n">FP</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">truth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c1"># true negative</span>
+            <span class="n">TN</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># false negative</span>
+            <span class="n">FN</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">TN</span><span class="p">,</span> <span class="n">FN</span><span class="p">],</span> <span class="p">[</span><span class="n">FP</span><span class="p">,</span> <span class="n">TP</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="n">conf_matrix</span>
+
+<span class="k">def</span> <span class="nf">rate_calculations</span><span class="p">(</span><span class="n">test_set</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">classifications</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="c1"># calculate the confusion matrix</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">classifications</span><span class="p">)</span>
+
+    <span class="c1"># assign the TP, FP, TN, FN rates</span>
+    <span class="n">TN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">TP</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># status check</span>
+    <span class="c1"># print(f"TP: {TP}")</span>
+    <span class="c1"># print(f"FP: {FP}")</span>
+    <span class="c1"># print(f"TN: {TN}")</span>
+    <span class="c1"># print(f"FN: {FN}")</span>
+
+    <span class="c1"># calculate TPR</span>
+    <span class="n">TPR</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">/</span> <span class="nb">max</span><span class="p">((</span><span class="n">TP</span> <span class="o">+</span> <span class="n">FN</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># calculate FPR</span>
+    <span class="n">FPR</span> <span class="o">=</span> <span class="n">FP</span> <span class="o">/</span> <span class="nb">max</span><span class="p">((</span><span class="n">FP</span> <span class="o">+</span> <span class="n">TN</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># calculate TNR</span>
+    <span class="n">TNR</span> <span class="o">=</span> <span class="n">TN</span> <span class="o">/</span> <span class="nb">max</span><span class="p">((</span><span class="n">TN</span> <span class="o">+</span> <span class="n">FP</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># calculate FNR</span>
+    <span class="n">FNR</span> <span class="o">=</span> <span class="n">FN</span> <span class="o">/</span> <span class="nb">max</span><span class="p">((</span><span class="n">FN</span> <span class="o">+</span> <span class="n">TN</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">FPR</span><span class="p">,</span> <span class="n">TNR</span><span class="p">,</span> <span class="n">FNR</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">calculate_nll</span><span class="p">(</span><span class="n">probabilities</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">no_prob</span><span class="p">,</span> <span class="n">yes_prob</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">yes_prob</span><span class="p">,</span> <span class="n">no_prob</span><span class="p">))</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">simulate_thresholds</span><span class="p">(</span><span class="n">prediction_probabilities</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y_test</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>   
+    <span class="c1"># initialize the range of thresholds</span>
+    <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">:</span>
+        <span class="c1"># compute the classifications</span>
+        <span class="n">classifications</span> <span class="o">=</span> <span class="n">hard_classification</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">prediction_probabilities</span><span class="p">)</span>
+
+        <span class="c1"># calculate the prediction rate results</span>
+        <span class="n">TPR</span><span class="p">,</span> <span class="n">FPR</span><span class="p">,</span> <span class="n">TNR</span><span class="p">,</span> <span class="n">FNR</span> <span class="o">=</span> <span class="n">rate_calculations</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">classifications</span><span class="p">)</span>
+
+        <span class="c1"># add to the results</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">TPR</span><span class="p">,</span> <span class="n">FPR</span><span class="p">,</span> <span class="n">TNR</span><span class="p">,</span> <span class="n">FNR</span><span class="p">))</span>
+        
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># constants.py</span>
+
+<span class="c1"># HOMEWORK 3 CONSTANTS</span>
+<span class="c1"># FILE PATHS</span>
+<span class="n">COLLEGE_TEST_PATH</span> <span class="o">=</span> <span class="s2">"/workspaces/stats_503/homework_3/data/college_test.csv"</span>
+<span class="n">COLLEGE_TRAIN_PATH</span> <span class="o">=</span> <span class="s2">"/workspaces/stats_503/homework_3/data/college_train.csv"</span>
+
+<span class="c1"># RANDOM STATE</span>
+<span class="n">RANDOM_STATE_SEED</span> <span class="o">=</span> <span class="mi">9271999</span>
+
+<span class="c1"># VISUALIZATION CONSTANTS</span>
+<span class="n">XLABEL</span> <span class="o">=</span> <span class="s2">"False Positive Rate (FPR)"</span>
+<span class="n">YLABEL</span> <span class="o">=</span> <span class="s2">"True Positive Rate (TPR)"</span>
+<span class="n">TITLE</span> <span class="o">=</span> <span class="s2">"Receiver Operating Characteristic (ROC) Curve"</span>
+<span class="n">LINE_LABEL</span> <span class="o">=</span> <span class="s2">"ROC Curve"</span>
+<span class="n">RANDOM_CLASSIFIER_LABEL</span> <span class="o">=</span> <span class="s2">"Random Classifier"</span>
 </pre></div>
 </div>
 </div>
