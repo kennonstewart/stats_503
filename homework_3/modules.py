@@ -70,7 +70,7 @@ def simulate_thresholds(prediction_probabilities: np.ndarray, y_test: np.array) 
         TPR, FPR, TNR, FNR = rate_calculations(y_test, classifications)
 
         # add to the results
-        results.append((FPR, TPR))
+        results.append((TPR, FPR, TNR, FNR))
         
     # return the results
     return (results)
