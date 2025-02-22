@@ -7548,7 +7548,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">¶</a></h2><p>We will now derive the probability that an observation is within the bootstrap sample of sample size $n$.</p>
 <h3 id="Part-A">Part A<a class="anchor-link" href="#Part-A">¶</a></h3><p>What is the probability that the first bootstrap observation is not the jth observation from the original sample? Justify your answer.</p>
-<p>The event that the first bootstrap observation is not the jth observation from the original sample is the complement of the event where the first observation is the jth observation in the original sample.</p>
+<p>Response: The event that the first bootstrap observation is not the jth observation from the original sample is the complement of the event where the first observation is the jth observation in the original sample.</p>
 <p>$$
 1 - P(B)
 $$</p>
@@ -7574,13 +7574,14 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">¶</a></h2><p>Suppose we use some statistical learning method to make a prediction for the response $Y$ for a particular value of the predictor of $X$. Carefully describe how we might estimate the standard deviation of our prediction.</p>
-<p>The idea would be that we take a large number of bootstrap samples, which are samples drawn with replacement from the original sample. For each of these bootstrap samples, we'd train a new linear model that would be used to make a prediction using the same original predictor values used to generate our observed prediction. The differences between our bootstrap prediction and original prediction are repeatedly summed and averaged across the number of bootstrap samples to estimate a standard deviation. This can be used to draw a confidence interval around the original prediction.</p>
+<p>The idea would be that we take a large number of bootstrap samples, which are samples drawn with replacement from the original sample. For each of these bootstrap samples, we'd train a new linear model from scratch that would be used to make a prediction using the same original predictor values used to generate our observed prediction. We would store this prediction, and repeat this process for a large number of bootstrap samples. I can then measure the variance of the distribution of bootstrap statistics to construct a confidence interval of the original parameter estimate. The variation in the predicted responses are entirely due to randomness in the sample since the predictors used to make the prediction are consistent between each iteration.</p>
 <ul>
 <li>From the original sample of size $n$, draw a bootstrap sample of size $n$ with replacement.</li>
-<li>Use the bootstrap sample to train a new model.</li>
+<li>Use the bootstrap sample to train a new model from scratch.</li>
 <li>Use this boostrap model to make a prediction on the original set of predictors as the first model.</li>
 <li>Repeat steps 1 - 3 until a sufficient amount of sample predictions have been generated and calculate the variance of this new sample of predictions.</li>
 <li>The variance of the estimate follows using algebra.</li>
+<li>This estimate of the variance can be used to construct a 95% confidence interval $[\hat{Y}-1.96\cdot\hat{\sigma}, \hat{Y}+1.96\cdot\hat{\sigma}]$</li>
 </ul>
 </div>
 </div>
@@ -7592,22 +7593,19 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h2><p><strong>(a) </strong>I use the following code to initialize a random number generator and generate a normally-distributed dataset of numbers of sample size $n=100$ and $p \sim \text{Normal}(\mu,\sigma^{2})$. We can write out the data's distribution in equation form in order to better understand the data-generating process:</p>
+<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h2><p>In this problem, we will perform cross-validation on a simulated dataset.</p>
+<h2 id="Part-A">Part A<a class="anchor-link" href="#Part-A">¶</a></h2><p>Generate a sample dataset using the code:</p>
+<pre><code>rng = np.random.default_rng(1)
+x = rng.normal(size=100)
+y = x - 2 * x**2 + rng.normal(size=100)
+</code></pre>
+<p>In this dataset, what is $n$ and what is $p$? Write out the model used to generate the data in equation form.</p>
+<p>I use the following code to initialize a random number generator and generate a normally-distributed dataset of numbers of sample size $n=100$ and $p \sim \text{Normal}(\mu,\sigma^{2})$. We can write out the data's distribution in equation form in order to better understand the data-generating process:</p>
 <p>$$
 y=x-2x^{2} + \epsilon
 $$</p>
 <p>where $\epsilon \sim N(\mu, \sigma^{2})$.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>(b) </strong> When I visualize the data using a scatter plot in <strong>Figure 3.1</strong>, I can see that the data follows a parabola pretty closely.</p>
+<h2 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h2><p>When I visualize the data using a scatter plot in <strong>Figure 3.1</strong>, I can see that the data follows a parabola pretty closely.</p>
 </div>
 </div>
 </div>
@@ -7793,6 +7791,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Question-6">Question 6<a class="anchor-link" href="#Question-6">¶</a></h2><p>For question 6, my first step is to download the dataset from Canvas and use it to train a Logistic Regression classifier. Since I won't be using the K-Fold Cross-Validation method for the first iteration of the model, I would expect the classification error to be smaller than that of the naive classifier (50%), but still somewhat large.</p>
+<p>In this caase, the misclassification rate of the logistic regression model when trained on the whole dataset is ~45%. This is a good benchmark for comparison.</p>
 </div>
 </div>
 </div>
@@ -7806,20 +7805,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s2">"weekly.csv"</span>
 <span class="n">weekly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">weekly_data</span> <span class="o">=</span> <span class="n">weekly_data</span><span class="p">[[</span><span class="s2">"Lag1"</span><span class="p">,</span> <span class="s2">"Lag2"</span><span class="p">,</span> <span class="s2">"Direction"</span><span class="p">]]</span>
+<span class="n">weekly_data</span> <span class="o">=</span> <span class="n">weekly_data</span><span class="p">[[</span><span class="s2">"Lag1"</span><span class="p">,</span> <span class="s2">"Lag2"</span><span class="p">,</span> <span class="s2">"Direction"</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -7830,7 +7816,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create training and testing sets</span>
@@ -7847,7 +7833,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_training</span><span class="p">)</span>
 
 <span class="c1"># evaluate the performance</span>
-<span class="n">misclassifications</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_training</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)])</span>
+<span class="n">misclassifications</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_training</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">misclassifications</span><span class="p">)</span>
 </pre></div>
@@ -7862,7 +7848,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>0.5546372819100092
+<pre>0.44536271808999084
 </pre>
 </div>
 </div>
@@ -7875,7 +7861,8 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h3><p>The second iteration of the model is done using a single holdout from the training set to serve as the validation set. We notice that the misclassification rate of the classifier trained on the entire training set is very similar to that of the classifier when trained on a training set of size $n-1$.</p>
+<h3 id="Part-B">Part B<a class="anchor-link" href="#Part-B">¶</a></h3><p>The second iteration of the model is trained using all but the first observation of the original training set. I then use perform validation using the same dataset that trained the model.</p>
+<p>The performance of this model is understandably very similar to that of the first. Excluding a single datapoint from the training set won't change the fit of the model given that that particular observation has very low influence. Our classification error hovers around 44% and our model misclassifies the held-out observation, demonstrating that this holdout has enough variation to serve as a good validation set with a large enough size.</p>
 </div>
 </div>
 </div>
@@ -7884,7 +7871,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create training and testing sets</span>
@@ -7893,20 +7880,26 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <span class="n">X_training</span> <span class="o">=</span> <span class="n">weekly_data</span><span class="p">[[</span><span class="s2">"Lag1"</span><span class="p">,</span> <span class="s2">"Lag2"</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span class="n">y_training</span> <span class="o">=</span> <span class="n">weekly_data</span><span class="p">[</span><span class="s2">"Direction"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
-
 <span class="c1"># initialize the logistic regression</span>
 <span class="n">logistic_regression_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
 
 <span class="c1"># fit the model</span>
 <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_training</span><span class="p">,</span> <span class="n">y_training</span><span class="p">)</span>
 
-<span class="c1"># generate predictions</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_training</span><span class="p">)</span>
+<span class="c1"># generate training predictions</span>
+<span class="n">training_predictions</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_training</span><span class="p">)</span>
 
-<span class="c1"># evaluate the performance</span>
-<span class="n">misclassifications</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_training</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)])</span>
+<span class="c1"># generate holdout predictions</span>
+<span class="n">holdout_prediction</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_holdout</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">misclassifications</span><span class="p">)</span>
+<span class="c1"># evaluate the training performance</span>
+<span class="n">training_misclassifications</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_predictions</span><span class="p">,</span> <span class="n">y_training</span><span class="p">)])</span>
+
+<span class="c1"># evaluate the holdout performance</span>
+<span class="n">holdout_misclassification</span> <span class="o">=</span> <span class="p">(</span><span class="n">holdout_prediction</span> <span class="o">==</span> <span class="n">y_holdout</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">training_misclassifications</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">holdout_misclassification</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7919,7 +7912,9 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>0.5569852941176471
+<pre>0.4430147058823529
+1    False
+Name: Direction, dtype: bool
 </pre>
 </div>
 </div>
@@ -7936,35 +7931,14 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># generate predictions</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_holdout</span><span class="p">)</span>
-
-<span class="c1"># evaluate the performance</span>
-<span class="n">misclassifications</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_holdout</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)])</span>
-
-<span class="n">misclassifications</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(0.0)</pre>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Part-D">Part D<a class="anchor-link" href="#Part-D">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7973,7 +7947,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">loocv</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -7996,7 +7970,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
         <span class="c1"># calculate the predicted value</span>
         <span class="n">holdout_prediction</span> <span class="o">=</span> <span class="n">logistic_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_holdout</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">holdout_prediction</span> <span class="o">==</span> <span class="n">y_holdout</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">holdout_prediction</span> <span class="o">!=</span> <span class="n">y_holdout</span><span class="p">:</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -8014,6 +7988,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Part-E">Part E<a class="anchor-link" href="#Part-E">¶</a></h3><p>When we average the accuracy of our simulation runs, we see that the accuracy of our model using LOOCV is slightly higher than that estimated using the whole training set. And I have much more confidence in this estimate because it was generated using every possible permutation of the dataset for training and validation.</p>
+<p>That being said, I would've expected to see a larger improvement ngl. This kinda feel like a let down but f it we ball.</p>
 </div>
 </div>
 </div>
@@ -8022,7 +7997,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loocv_mean</span> <span class="o">=</span> <span class="n">loocv</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">weekly_data</span><span class="p">))</span>
@@ -8039,7 +8014,7 @@ MSE for degree 4 fold 4: 2.749022482514182e-27
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>0.5500459136822773
+<pre>0.44995408631772266
 </pre>
 </div>
 </div>
